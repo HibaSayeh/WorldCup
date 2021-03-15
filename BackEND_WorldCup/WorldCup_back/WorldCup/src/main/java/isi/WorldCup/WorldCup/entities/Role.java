@@ -38,4 +38,16 @@ public class Role {
     public void setDescription(String description) {
         this.description = description;
     }
+
+	public Role(long id, String name, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+
+	public Role() {
+		
+	}
+    
 }

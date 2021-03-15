@@ -4,19 +4,13 @@ package isi.WorldCup.WorldCup.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,10 +28,10 @@ public class Match implements Serializable {
 	private int _nbSpectateur;
 
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "_matchs")
+ /*   @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "_matchs")
   	 private Set<Spectateur> _spectateurs = new HashSet<>();
 
-
+*/
 	public int get_idMatch() {
 		return _idMatch;
 	}
@@ -101,7 +95,7 @@ public class Match implements Serializable {
 	}
 
 
-
+/*
 
 	public Set<Spectateur> get_spectateurs() {
 		return _spectateurs;
@@ -139,7 +133,7 @@ public class Match implements Serializable {
 		super();
 	}
 	
-	
+	*/
 
 
 }

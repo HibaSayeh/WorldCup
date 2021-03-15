@@ -11,12 +11,14 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+
+
+
+
 import isi.WorldCup.WorldCup.config.TokenProvider;
 import isi.WorldCup.WorldCup.entities.AuthToken;
 import isi.WorldCup.WorldCup.entities.LoginUser;
-import isi.WorldCup.WorldCup.repository.UserRepository;
-
-
+import isi.WorldCup.WorldCup.controller.service.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 //@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
@@ -31,7 +33,7 @@ public class AuthenticationController {
     private TokenProvider jwtTokenUtil;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @RequestMapping(value = "/generate-token", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {

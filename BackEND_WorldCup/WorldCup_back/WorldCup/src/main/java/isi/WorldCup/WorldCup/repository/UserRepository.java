@@ -1,12 +1,13 @@
 package isi.WorldCup.WorldCup.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
+import org.springframework.data.repository.CrudRepository;
 
 import isi.WorldCup.WorldCup.entities.User;
 
-public interface UserRepository extends JpaRepository<User,Integer> {
-	
-	User findById(int id);
+public interface UserRepository extends CrudRepository<User,Integer> {
+
+    User findByUsername(String username);
+
 
 }

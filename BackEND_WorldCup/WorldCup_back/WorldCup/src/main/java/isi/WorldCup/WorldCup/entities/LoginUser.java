@@ -2,22 +2,22 @@ package isi.WorldCup.WorldCup.entities;
 
 public class LoginUser {
 
-    private String username;
-    private String password;
+    private String _username;
+    private String _password;
 
     public String getUsername() {
-        return username;
+        return _username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String _username) {
+        this._username = _username;
     }
 
     public String getPassword() {
-        return password;
+        return _password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String _password) {
+        this._password = _password;
     }
 }

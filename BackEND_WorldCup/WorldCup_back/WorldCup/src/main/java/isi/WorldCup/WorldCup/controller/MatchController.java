@@ -22,6 +22,8 @@ public class MatchController {
 	@Autowired 
 	MatchRepository matchRepository;
 	
+	
+	
 	@GetMapping("/matchs")
 	public List<Match> getAllMatch() {
 		List<Match> matchs = matchRepository.findAll();
@@ -50,17 +52,13 @@ public class MatchController {
 	public Match updateMatch(@PathVariable(value = "id") Integer Id,
 	                                        @RequestBody Match match) {
 
-	    Match m = matchRepository.findById(Id).orElseThrow(null);
-	    
-	   
 	    match.set_dateMatch(match.get_dateMatch());
 	    match.set_deuxiemeEquipe(match.get_deuxiemeEquipe());
 	    match.set_premiereEquipe(match.get_premiereEquipe());
 	    match.set_nbSpectateur(match.get_nbSpectateur());
 	   
 
-	   m = matchRepository.save(match);
-	    return match;
+	   return match;
 	}
 	
 	

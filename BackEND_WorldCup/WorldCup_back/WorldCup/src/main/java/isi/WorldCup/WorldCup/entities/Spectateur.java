@@ -24,16 +24,13 @@ public class Spectateur extends User {
 	
  
     private Date _dateNaissance;
-    private String _email;
-    private String _motdepasse;
-
-
+   
 	
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "Billet",
 		joinColumns = { @JoinColumn(name = "spectateur_id")},
 		inverseJoinColumns = { @JoinColumn (name = "match_id")})
-    private Set<Match> _matchs = new HashSet<>();
+    private Set<Match> _matchs;
     
 
 	public Date get_dateNaissance() {
@@ -42,32 +39,26 @@ public class Spectateur extends User {
 	public void set_dateNaissance(Date _dateNaissance) {
 		this._dateNaissance = _dateNaissance;
 	}
-	public String get_email() {
-		return _email;
+	
+	
+	
+	
+	public Set<Match> get_matchs() {
+		return _matchs;
 	}
-	public void set_email(String _email) {
-		this._email = _email;
-	}
-	public String get_motdepasse() {
-		return _motdepasse;
-	}
-	public void set_motdepasse(String _motdepasse) {
-		this._motdepasse = _motdepasse;
-	}
-	@Override
-	public String toString() {
-		return "Spectateur [_dateNaissance=" + _dateNaissance + ", _email=" + _email + ", _motdepasse=" + _motdepasse
-				+"]";
-	}
-	public Spectateur(String _nom, String _prenom, int _numTel, Date _dateNaissance, String _email,
-			String _motdepasse, Set<Match> _matchs) {
-		super(_nom, _prenom, _numTel);
-		this._dateNaissance = _dateNaissance;
-		this._email = _email;
-		this._motdepasse = _motdepasse;
+	public void set_matchs(Set<Match> _matchs) {
 		this._matchs = _matchs;
 	}
+	public Spectateur(String _nom, String _prenom, int _numTel, String username, String password, Set<Role> roles, Date _dateNaissance, Set<Match> _matchs) {
+		super(_nom,_prenom,_numTel,username,password,roles);
+		this._dateNaissance = _dateNaissance;
+		this._matchs = _matchs;
+	}
+	public Spectateur() {
+		super();
 	
+	}
+
 
 
 
